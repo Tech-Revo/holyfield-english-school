@@ -27,7 +27,7 @@
 
                 </li>
                 <li>
-                    <a href="#">Events</a>
+                    <a href="{{url('events')}}">Events</a>
 
                 </li>
 
@@ -41,7 +41,7 @@
 
                 </li>
                 <li>
-                    <a href="{{ url('/') }}">Login</a>
+                    <a href="{{ url('login') }}">Login</a>
 
                 </li>
             </ul>

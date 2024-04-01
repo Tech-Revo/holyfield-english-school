@@ -100,19 +100,19 @@
                              <div class="menu-all-pages-container">
                                  <ul class="menu">
                                      <li>
-                                         <a href="course.html">Gallery</a>
+                                         <a href="">Gallery</a>
                                      </li>
                                      <li>
-                                         <a href="course.html">Events</a>
+                                         <a href="{{url('events')}}">Events</a>
                                      </li>
                                      <li>
-                                         <a href="course.html">Blogs</a>
+                                         <a href="{{url('blogs')}}">Blogs</a>
                                      </li>
                                      <li>
-                                         <a href="course.html">Contact Us</a>
+                                         <a href="{{url('contact')}}">Contact Us</a>
                                      </li>
                                      <li>
-                                         <a href="course.html">About Us</a>
+                                         <a href="{{url('about-us')}}">About Us</a>
                                      </li>
 
                                  </ul>
@@ -125,19 +125,19 @@
                              <div class="menu-all-pages-container">
                                  <ul class="menu">
                                      <li>
-                                         <a href="contact.html">Routines</a>
+                                         <a href="">Routines</a>
                                      </li>
                                      <li>
-                                         <a href="contact.html">Exam Results</a>
+                                         <a href="">Exam Results</a>
                                      </li>
                                      <li>
-                                         <a href="contact.html">Test Results</a>
+                                         <a href="">Test Results</a>
                                      </li>
                                      <li>
-                                         <a href="contact.html">Announcement</a>
+                                         <a href="">Announcement</a>
                                      </li>
                                      <li>
-                                         <a href="contact.html">Academic Calender</a>
+                                         <a href="">Academic Calender</a>
                                      </li>
 
                                  </ul>
@@ -211,10 +211,10 @@
                          <div class="footer-links">
                              <ul>
                                  <li>
-                                     <a href="about.html">Privacy Policy</a>
+                                     <a href="">Privacy Policy</a>
                                  </li>
                                  <li>
-                                     <a href="about.html">Terms & Condition</a>
+                                     <a href="">Terms & Condition</a>
                                  </li>
                              </ul>
                          </div>

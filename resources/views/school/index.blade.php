@@ -328,7 +328,7 @@
                         </div>
                         <div class="about-grid" data-bg-src="{{ url('assets/school/img/img2.jpeg') }}">
                             <h3 class="about-grid_year">
-                                <span class="counter-number">5</span>
+                                <span class="counter-number">1</span>
                                 k<span class="text-theme">+</span>
                             </h3>
                             <p class="about-grid_text">Active Students</p>
