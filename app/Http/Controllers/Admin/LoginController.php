@@ -24,7 +24,7 @@ class LoginController extends Controller
         try {
             if (Auth::attempt($credential)) {
                 $user = Auth::user();
-                if ($user->user_role == 'admin') {
+                if ($user->user_role == 'superadmin') {
                     sweetalert()->addSuccess('Welcome ' . $user->name);
                     return redirect('admin/dashboard');
                 } else {

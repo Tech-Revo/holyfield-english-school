@@ -109,7 +109,7 @@
 
                         @empty
                             <img src="{{ url('assets/school/img/no-event.png') }}" class="mx-auto d-block"
-                                style="max-width:20%" />
+                                style="max-width:30%" />
                             <h5 class="text-center">No Events</h5>
                         @endforelse
                     </div>
