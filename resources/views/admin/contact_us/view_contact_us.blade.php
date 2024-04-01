@@ -45,24 +45,29 @@
                                         <td>{{ $contact->email }}</td>
                                         <td>{{ $contact->phone_no }}</td>
                                         @if ($contact->subject === 'Complaint')
-                                            <td><span class="badge badge-danger rounded">{{ $contact->subject }}</span></td>
+                                            <td><span class="badge badge-danger rounded">{{ $contact->subject }}</span>
+                                            </td>
                                         @elseif($contact->subject === 'Admission Inquiry')
-                                            <td><span class="badge badge-primary rounded">{{ $contact->subject }}</span></td>
+                                            <td><span class="badge badge-primary rounded">{{ $contact->subject }}</span>
+                                            </td>
                                         @elseif($contact->subject === 'Information Inquiry')
-                                            <td><span class="badge badge-success rounded">{{ $contact->subject }}</span></td>
+                                            <td><span class="badge badge-success rounded">{{ $contact->subject }}</span>
+                                            </td>
                                         @endif
 
                                         <td>{{ $contact->message }}</td>
                                     </tr>
                                 @empty
-                                    <img src="{{ url('assets/school/img/Empty-rafiki.png') }}"
-                                        class="img-fluid mx-auto d-block" alt="Empty Data" style="max-width: 40%" />
+                                    <td colspan="6">
+                                        <img src="{{ url('assets/school/img/Empty-rafiki.png') }}"
+                                            class="img-fluid mx-auto d-block" alt="Empty Data" style="max-width: 40%" />
+                                    </td>
                                 @endforelse
 
                             </tbody>
 
                         </table>
-                        {{$contacts->links('pagination::bootstrap-5')}}
+                        {{ $contacts->links('pagination::bootstrap-5') }}
 
 
 

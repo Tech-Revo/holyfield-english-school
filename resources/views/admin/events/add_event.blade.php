@@ -97,6 +97,7 @@
                                         </div>
                                         <div class="col-12">
                                             <div class="student-submit">
+                                                 <a href="{{url('admin/cms/events/view')}}" class="btn btn-primary">Return Back</a>
                                                 <button type="submit" class="btn btn-primary">Submit</button>
                                             </div>
                                         </div>
