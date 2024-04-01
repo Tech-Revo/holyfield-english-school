@@ -23,7 +23,8 @@ class GalleryCreateRequest extends FormRequest
     {
         return [
             'title'=>['required'],
-            'gallery_image'=>['required','image', 'max:2048']
+            'gallery_image'=>['required','image', 'max:2048'],
+            'tags'=>['required']
         ];
     }
 }

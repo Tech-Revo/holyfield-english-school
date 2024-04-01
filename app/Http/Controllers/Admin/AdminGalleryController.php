@@ -13,27 +13,27 @@ class AdminGalleryController extends Controller
 {
     public function index()
     {
-        $galleries=Gallery::with('media')->latest()->paginate(10);
+        $galleries = Gallery::with('media')->latest()->paginate(10);
 
-        return view('admin.gallery.gallery',compact('galleries'));
+        return view('admin.gallery.gallery', compact('galleries'));
     }
 
-    public function addGalleryImageIndex(){
+    public function addGalleryImageIndex()
+    {
         return view('admin.gallery.add_gallery');
-        
     }
 
     public function store(GalleryCreateRequest $request)
     {
 
-    
+
         try {
             $gallery = DB::transaction(function () use ($request) {
 
                 $gallery = Gallery::create([
                     'published_by' => auth()->user()->name,
                     'title' => $request->title,
-                    'tag' => $request->tag,
+                    'tag' => $request->tags,
 
                 ]);
                 if ($request->gallery_image) {
@@ -44,11 +44,37 @@ class AdminGalleryController extends Controller
 
                 return $gallery;
             });
-            if($gallery){
-                return back()->with('success','Image uploaded successfully!');
+            if ($gallery) {
+                return back()->with('success', 'Image uploaded successfully!');
             }
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage());
         }
+    }
+
+    public function destroy($id)
+    {
+
+        $gallery = Gallery::find($id);
+
+        try{
+            $blog=DB::transaction(function()use($gallery){
+                $gallery->clearMediaCollection('gallery_image');
+                $gallery->delete();
+                
+                return $gallery;
+            });
+            if($gallery){
+                return back()->with('success', 'Gallery image deleted successfully!');
+            }
+            
+        }
+        catch(\Exception $e){
+            return back()->with('error',$e->getMessage());
+            
+        }
+
+      
+        
     }
 }

@@ -51,6 +51,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::get('cms/gallery', [AdminGalleryController::class, 'index']);
     Route::post('cms/gallery', [AdminGalleryController::class, 'store']);
     Route::get('cms/gallery/add', [AdminGalleryController::class, 'addGalleryImageIndex']);
+    Route::get('cms/gallery/delete/{id}', [AdminGalleryController::class, 'destroy']);
 
 
 

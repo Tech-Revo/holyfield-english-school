@@ -20,10 +20,10 @@
                 <div class="page-header">
                     <div class="row align-items-center">
                         <div class="col">
-                            <h3 class="page-title">Teachers</h3>
+                            <h3 class="page-title">Gallery</h3>
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}">Dashboard</a></li>
-                                <li class="breadcrumb-item active">Teachers</li>
+                                <li class="breadcrumb-item active">Gallery</li>
                             </ul>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                                     <th>ID</th>
                                     <th>Profile Image</th>
                                     <th>Title</th>
-
+                                    <th>Tags</th>
                                     <th>Action</th>
 
                                 </tr>
@@ -87,22 +87,15 @@
 
 
                                         <td>{{ $gallery->title }}</td>
+                                        <td>{{ $gallery->tag }}</td>
 
-                                        <td class="text-end">
-                                            <div class="actions">
-                                                <a href="{{ url('admin/teachers/view/') }}/{{ $gallery->id }}"
-                                                    class="btn btn-sm bg-success-light me-2">
-                                                    <i class="feather-eye"></i>
-                                                </a>
-                                                {{-- <a href="edit-teacher.html" class="btn btn-sm bg-danger-light">
-                                                    <i class="feather-edit"></i>
-                                                </a> --}}
-                                            </div>
+                                        <td>
+                                           <a href="{{url('admin/cms/gallery/delete')}}/{{$gallery->id}}" class="btn btn-danger text-light">Delete</a>
                                         </td>
 
                                     </tr>
                                 @empty
-                                    <td colspan="7">
+                                    <td colspan="5">
                                         <img src="{{ url('assets/school/img/Empty-rafiki.png') }}"
                                             class="img-fluid mx-auto d-block" alt="Empty Data" style="max-width: 40%" />
                                     </td>

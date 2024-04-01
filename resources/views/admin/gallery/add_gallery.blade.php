@@ -58,22 +58,37 @@
 
 
 
-                        <form action="{{ url('admin/cms/gallery') }}" method="POST"
-                            enctype="multipart/form-data">
+                        <form action="{{ url('admin/cms/gallery') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="card">
                                 <div class="card-body">
                                     <div class="bank-inner-details">
                                         <div class="row">
                                             <div class="col-lg-12 col-md-12">
-                                                <div class="form-group">
-                                                    <label>Title<span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="title">
-                                                    @error('title')
-                                                        <p class="text-danger">{{ $message }}</p>
-                                                    @enderror
+                                                <div class="row">
+
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Title<span class="text-danger">*</span></label>
+                                                        <input type="text" class="form-control" name="title">
+                                                        @error('title')
+                                                            <p class="text-danger">{{ $message }}</p>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Tags<span class="text-danger">*</span></label>
+                                                        <input type="text" class="form-control" name="tags">
+                                                        @error('tags')
+                                                            <p class="text-danger">{{ $message }}</p>
+                                                        @enderror
+                                                    </div>
                                                 </div>
                                             </div>
+
+                                            </div>
+
                                             <div class="col-lg-12 col-md-12">
                                                 <div class="form-group">
 
@@ -81,7 +96,7 @@
                                                         <label for="inputTag">
                                                             Select Image <br />
                                                             <i class="fa fa-2x fa-camera"></i>
-                                                            <input id="inputTag" type="file" name="gallery_image"/>
+                                                            <input id="inputTag" type="file" name="gallery_image" />
                                                             <br />
                                                             <span id="imageName"></span>
                                                         </label>
@@ -98,12 +113,13 @@
                                 </div>
                                 <div class=" blog-categories-btn pt-0">
                                     <div class="bank-details-btn ">
-                                       
 
-                                        <a href="{{url('admin/cms/gallery')}}"  class="btn bank-cancel-btn me-2">Return Back</a>
-                                         <button type="submit" class="btn bank-cancel-btn me-2">Publish</button>
+
+                                        <a href="{{ url('admin/cms/gallery') }}" class="btn bank-cancel-btn me-2">Return
+                                            Back</a>
+                                        <button type="submit" class="btn bank-cancel-btn me-2">Publish</button>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </form>
