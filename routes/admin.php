@@ -50,6 +50,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::post('cms/events/add', [AdminEventController::class, 'store']);
     Route::get('cms/gallery', [AdminGalleryController::class, 'index']);
     Route::post('cms/gallery', [AdminGalleryController::class, 'store']);
+    Route::get('cms/gallery/add', [AdminGalleryController::class, 'addGalleryImageIndex']);
+
 
 
     Route::get('settings/general-settings', [AdminSettingController::class, 'generalSettingIndex']);

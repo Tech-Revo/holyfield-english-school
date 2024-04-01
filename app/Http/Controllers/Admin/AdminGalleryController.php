@@ -13,21 +13,27 @@ class AdminGalleryController extends Controller
 {
     public function index()
     {
+        $galleries=Gallery::with('media')->latest()->paginate(10);
 
-        return view('admin.gallery.gallery');
+        return view('admin.gallery.gallery',compact('galleries'));
+    }
+
+    public function addGalleryImageIndex(){
+        return view('admin.gallery.add_gallery');
+        
     }
 
     public function store(GalleryCreateRequest $request)
     {
 
-        
-
+    
         try {
             $gallery = DB::transaction(function () use ($request) {
 
                 $gallery = Gallery::create([
                     'published_by' => auth()->user()->name,
                     'title' => $request->title,
+                    'tag' => $request->tag,
 
                 ]);
                 if ($request->gallery_image) {
