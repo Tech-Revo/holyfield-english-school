@@ -20,7 +20,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="page-sub-header">
-                                <h3 class="page-title">Welcome Admin!</h3>
+                                <h3 class="page-title">@lang('translation.welcome_text')</h3>
                                 <ul class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="{{url('admin/dashboard')}}">Home</a></li>
                                     <li class="breadcrumb-item active">Admin</li>

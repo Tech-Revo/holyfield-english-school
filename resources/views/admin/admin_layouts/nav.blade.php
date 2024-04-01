@@ -68,7 +68,7 @@
                         width="31" alt="{{ auth()->user()->name }}">
                     <div class="user-text">
                         <h6>{{ auth()->user()->name }}</h6>
-                        <p class="text-muted mb-0">Administrator</p>
+                        <p class="text-muted mb-0">@lang('translation.administrator')</p>
                     </div>
                 </div>
             </a>
@@ -80,11 +80,11 @@
                     </div>
                     <div class="user-text">
                         <h6>{{ auth()->user()->name }}</h6>
-                        <p class="text-muted mb-0">Administrator</p>
+                        <p class="text-muted mb-0">@lang('translation.administrator')</p>
                     </div>
                 </div>
-                <a class="dropdown-item" href="{{ url('admin/profile') }}">My Profile</a>
-                <a class="dropdown-item" href="{{ url('admin/logout') }}">Logout</a>
+                <a class="dropdown-item" href="{{ url('admin/profile') }}">@lang('translation.my_profile')</a>
+                <a class="dropdown-item" href="{{ url('admin/logout') }}">@lang('translation.logout')</a>
             </div>
         </li>
 

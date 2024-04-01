@@ -3,21 +3,21 @@
         <div id="sidebar-menu" class="sidebar-menu">
             <ul>
                 <li class="menu-title">
-                    <span>Main Menu</span>
+                    <span>@lang('translation.main_menu')</span>
                 </li>
                 <li class="{{ request()->is('admin/dashboard') ? 'active' : '' }}">
-                    <a href="{{url('admin/dashboard')}}"><i class="feather-grid"></i> <span> Dashboard</span></a>
+                    <a href="{{url('admin/dashboard')}}"><i class="feather-grid"></i> <span> @lang('translation.dashboard')</span></a>
 
                 </li>
 
                  <li class="submenu {{ request()->is('admin/cms*') ? 'active' : '' }}">
-                    <a href="#"><i class="fas fa-book"></i> <span> CMS</span> <span
+                    <a href="#"><i class="fas fa-book"></i> <span> @lang('translation.cms')</span> <span
                             class="menu-arrow"></span></a>
                     <ul>
-                        <li><a href="{{url('admin/cms/blogs/active-blogs')}}" class="{{ request()->is('admin/cms/blogs/active-blogs') ? 'active' : '' }}">Blogs</a></li>
-                        <li><a href="{{url('admin/cms/events/view')}}" class="{{ request()->is('admin/cms/events/view') ? 'active' : '' }}">Events</a></li>
-                        <li><a href="{{url('admin/cms/gallery')}}" class="{{ request()->is('admin/cms/gallery') ? 'active' : '' }}">Gallery</a></li>
-                        <li><a href="{{url('admin/cms/contact-us')}}" class="{{ request()->is('admin/cms/contact-us') ? 'active' : '' }}">Contact Us</a></li>
+                        <li><a href="{{url('admin/cms/blogs/active-blogs')}}" class="{{ request()->is('admin/cms/blogs/active-blogs') ? 'active' : '' }}">@lang('translation.blogs')</a></li>
+                        <li><a href="{{url('admin/cms/events/view')}}" class="{{ request()->is('admin/cms/events/view') ? 'active' : '' }}">@lang('translation.events')</a></li>
+                        <li><a href="{{url('admin/cms/gallery')}}" class="{{ request()->is('admin/cms/gallery') ? 'active' : '' }}">@lang('translation.gallery')</a></li>
+                        <li><a href="{{url('admin/cms/contact-us')}}" class="{{ request()->is('admin/cms/contact-us') ? 'active' : '' }}">@lang('translation.contact_us')</a></li>
                         
                     </ul>
                 </li>
@@ -33,11 +33,11 @@
                     </ul>
                 </li> --}}
               <li class="submenu {{ request()->is('admin/teachers*') ? 'active' : '' }}">
-                    <a href="#"><i class="fas fa-chalkboard-teacher"></i> <span> Teachers</span> <span
+                    <a href="#"><i class="fas fa-chalkboard-teacher"></i> <span> @lang('translation.teacher')</span> <span
                             class="menu-arrow"></span></a>
                     <ul>
-                        <li><a href="{{url('admin/teachers/view')}}" class="{{ request()->is('admin/teachers/view') ? 'active' : '' }}">Teacher List</a></li>
-                        <li><a href="{{url('admin/teachers/add')}}" class="{{ request()->is('admin/teachers/add') ? 'active' : '' }}">Teacher Add</a></li>
+                        <li><a href="{{url('admin/teachers/view')}}" class="{{ request()->is('admin/teachers/view') ? 'active' : '' }}">@lang('translation.teacher_list')</a></li>
+                        <li><a href="{{url('admin/teachers/add')}}" class="{{ request()->is('admin/teachers/add') ? 'active' : '' }}">@lang('translation.add_teacher')</a></li>
                         
                     </ul>
                 </li> 
@@ -118,7 +118,7 @@
                 </li> --}}
                 
                 <li class="{{ request()->is('admin/settings*') ? 'active' : '' }}">
-                    <a href="{{url('admin/settings/general-settings')}}"><i class="fas fa-cog"></i> <span>Settings</span></a>
+                    <a href="{{url('admin/settings/general-settings')}}"><i class="fas fa-cog"></i> <span>@lang('translation.setting')</span></a>
                 </li> 
                 
                 
