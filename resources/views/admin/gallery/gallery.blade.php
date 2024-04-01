@@ -30,26 +30,31 @@
                 </div>
 
                 <div class="student-group-form">
-                    <div class="row">
+                    <form action="{{url('admin/cms/gallery')}}" method="GET">
+                        <div class="row">
 
-                        <div class="col-lg-3 col-md-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Search by Name ...">
+                            <div class="col-lg-3 col-md-6">
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="search_keyword" placeholder="Search by Title ...">
+                                </div>
+
+                            </div>
+
+                            <div class="col-lg-2">
+                                <div class="search-student-btn">
+                                    <button type="btn" class="btn btn-primary">Search</button>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-2 text-end float-end ms-auto">
+                                <div class="search-student-btn">
+                                    <a href="{{ url('admin/cms/gallery/add') }}" class="btn btn-primary">Add New
+                                        Image</a>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="col-lg-2">
-                            <div class="search-student-btn">
-                                <button type="btn" class="btn btn-primary">Search</button>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-2 text-end float-end ms-auto">
-                            <div class="search-student-btn">
-                                <a href="{{ url('admin/cms/gallery/add') }}" class="btn btn-primary">Add New Image</a>
-                            </div>
-                        </div>
-                    </div>
+                    </form>
                 </div>
 
 
@@ -64,7 +69,7 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Profile Image</th>
+                                    <th>Image</th>
                                     <th>Title</th>
                                     <th>Tags</th>
                                     <th>Action</th>
@@ -90,7 +95,8 @@
                                         <td>{{ $gallery->tag }}</td>
 
                                         <td>
-                                           <a href="{{url('admin/cms/gallery/delete')}}/{{$gallery->id}}" class="btn btn-danger text-light">Delete</a>
+                                            <a href="{{ url('admin/cms/gallery/delete') }}/{{ $gallery->id }}"
+                                                class="btn btn-danger text-light">Delete</a>
                                         </td>
 
                                     </tr>

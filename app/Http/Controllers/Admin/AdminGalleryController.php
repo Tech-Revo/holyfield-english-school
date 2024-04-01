@@ -13,7 +13,12 @@ class AdminGalleryController extends Controller
 {
     public function index()
     {
-        $galleries = Gallery::with('media')->latest()->paginate(10);
+        $search_keyword=request()->query('search_keyword');
+        $galleries = Gallery::with('media')->
+        when($search_keyword,function($query)use($search_keyword){
+            $query->where('title','like','%'.$search_keyword.'%');
+            
+        })->latest()->paginate(10);
 
         return view('admin.gallery.gallery', compact('galleries'));
     }
