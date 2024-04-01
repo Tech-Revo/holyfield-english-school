@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
+use App\Models\Localization;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -11,18 +12,20 @@ class AdminBlogController extends Controller
 {
     public function index(){
         $blogs=Blog::with('media')->where('status','active')->latest()->paginate(5);
-       return view('admin.blogs.blogs',compact('blogs'));
+        $lang = Localization::where('user_id', auth()->user()->id)->first();
+       return view('admin.blogs.blogs',compact('blogs','lang'));
     }
 
 
     public function create(){
-        
-        return view('admin.blogs.add_blogs');
+        $lang = Localization::where('user_id', auth()->user()->id)->first();
+        return view('admin.blogs.add_blogs',compact('lang'));
     }
 
     public function show($slug){
         $blog=Blog::with('media')->where('slug',$slug)->first();
-        return view('admin.blogs.blog_details',compact('blog'));
+        $lang = Localization::where('user_id', auth()->user()->id)->first();
+        return view('admin.blogs.blog_details',compact('blog','lang'));
         
     }
 

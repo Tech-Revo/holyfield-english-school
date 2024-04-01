@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -24,6 +25,7 @@ class LoginController extends Controller
         try {
             if (Auth::attempt($credential)) {
                 $user = Auth::user();
+                Session::put('user_id', $user->id);
                 if ($user->user_role == 'superadmin') {
                     sweetalert()->addSuccess('Welcome ' . $user->name);
                     return redirect('admin/dashboard');

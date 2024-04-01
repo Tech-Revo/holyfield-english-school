@@ -8,8 +8,10 @@ use App\Http\Controllers\Admin\AdminSettingController;
 use App\Http\Controllers\Admin\AdminSiteSettingController;
 use App\Http\Controllers\Admin\AdminTeacherController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\LocalizationController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Models\Localization;
 use App\Models\Teacher;
 use Illuminate\Support\Facades\Route;
 
@@ -28,8 +30,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::post('login', [LoginController::class, 'login']);
+Route::get('locale/{locale}', [LocalizationController::class, 'setLocale']);
 
-Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
+Route::group(['middleware' => ['auth','lang'], 'prefix' => 'admin'], function () {
 
     Route::get('logout', [LoginController::class, 'logout']);
 

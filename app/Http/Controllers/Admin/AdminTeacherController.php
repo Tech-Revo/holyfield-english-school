@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Teacher\TeacherCreateRequest;
+use App\Models\Localization;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -11,20 +12,25 @@ use Illuminate\Support\Facades\DB;
 class AdminTeacherController extends Controller
 {
     public function index(){
-       return view('admin.teachers.add_teacher');
+        $lang = Localization::where('user_id', auth()->user()->id)->first();
+        
+       return view('admin.teachers.add_teacher',compact('lang'));
     }
 
     public function viewTeachersIndex(){
 
         $teachers=Teacher::latest()->paginate(10);
-        return view('admin.teachers.view_teachers',compact('teachers'));
+        $lang = Localization::where('user_id', auth()->user()->id)->first();
+        
+        return view('admin.teachers.view_teachers',compact('teachers','lang'));
     }
 
     public function show($id){
         
         $teacher=Teacher::with('media')->find($id);
+        $lang = Localization::where('user_id', auth()->user()->id)->first();
 
-       return view('admin.teachers.view_teacher_details',compact('teacher'));
+       return view('admin.teachers.view_teacher_details',compact('teacher','lang'));
         
     }
 

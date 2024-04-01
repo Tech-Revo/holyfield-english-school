@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Event;
+use App\Models\Localization;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Date;
@@ -12,7 +13,9 @@ use Illuminate\Support\Facades\DB;
 class AdminEventController extends Controller
 {
     public function index(){
-        return view('admin.events.events');
+        $lang = Localization::where('user_id', auth()->user()->id)->first();
+        
+        return view('admin.events.events',compact('lang'));
     }
 
     public function eventData()
@@ -35,7 +38,9 @@ class AdminEventController extends Controller
     }
 
     public function addEventIndex(){
-        return view('admin.events.add_event');
+        $lang = Localization::where('user_id', auth()->user()->id)->first();
+        
+        return view('admin.events.add_event',compact('lang'));
     }
 
     public function store(Request $request){

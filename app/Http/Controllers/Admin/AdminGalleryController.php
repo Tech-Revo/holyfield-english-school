@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Gallery\GalleryCreateRequest;
 use App\Http\Services\MediaService;
 use App\Models\Gallery;
+use App\Models\Localization;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -19,13 +20,16 @@ class AdminGalleryController extends Controller
             $query->where('title','like','%'.$search_keyword.'%');
             
         })->latest()->paginate(10);
-
-        return view('admin.gallery.gallery', compact('galleries'));
+        $lang = Localization::where('user_id', auth()->user()->id)->first();
+        
+        return view('admin.gallery.gallery', compact('galleries','lang'));
     }
 
     public function addGalleryImageIndex()
     {
-        return view('admin.gallery.add_gallery');
+        $lang = Localization::where('user_id', auth()->user()->id)->first();
+        
+        return view('admin.gallery.add_gallery',compact('lang'));
     }
 
     public function store(GalleryCreateRequest $request)
