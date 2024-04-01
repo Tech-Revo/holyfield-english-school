@@ -21319,25 +21319,25 @@ span.select2-selection.select2-selection--single:focus {
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
     position: relative;
     padding: 40px;
     border-radius: 10px;
     background-color: var(--white-color);
     border: 1px solid var(--border-color);
     z-index: 2;
-    margin-top: 67px;
+    margin-top: 10px;
 }
 @media (max-width: 1500px) {
     .event-card {
-        margin-left: 30px;
-        margin-top: 47px;
+        margin-left: 10px;
+        margin-top: 10px;
     }
 }
 @media (max-width: 1299px) {
     .event-card {
-        padding: 30px;
-        margin-top: 30px;
+        padding: 10px;
+        margin-top: 10px;
     }
 }
 @media (max-width: 1199px) {
@@ -21348,8 +21348,8 @@ span.select2-selection.select2-selection--single:focus {
 }
 @media (max-width: 991px) {
     .event-card {
-        margin-top: 30px;
-        margin-left: 30px;
+        margin-top: 10px;
+        margin-left: 10px;
     }
 }
 @media (max-width: 320px) {

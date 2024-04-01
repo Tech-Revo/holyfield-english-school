@@ -174,7 +174,7 @@
 
                                         </li>
                                         <li>
-                                            <a href="#">Events</a>
+                                            <a href="{{url('events')}}">Events</a>
 
                                         </li>
 

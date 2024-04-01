@@ -615,9 +615,12 @@
                                         ?>
                                         {{ $startTime->format('h:i A') }} - {{ $endTime->format('h:i A') }}
                                     </p>
+                                     <p><i class="fal fa-calendar"></i>
+                                                {{ \Carbon\Carbon::parse($upComingEvent->event_date)->format('M j, Y') }}
+                                            </p>
                                 </div>
                                 <h3 class="event-card_title">
-                                    <a href="#">{{ $upComingEvent->event_name }}</a>
+                                    <a href="{{url('events')}}">{{ $upComingEvent->event_name }}</a>
                                 </h3>
 
                                 <div class=" text-left">
