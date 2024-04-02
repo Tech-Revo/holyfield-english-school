@@ -130,7 +130,7 @@
 
       $(document).ready(function() {
     $.ajax({
-        url: '/admin/cms/events',
+        url: '/admin/cms/events/data',
         type: 'GET',
         success: function(events) {
           

@@ -25,5 +25,18 @@ return [
     //Footer
     'copyright' => "प्रतिलिपि अधिकार © ",
     'mero_vision' => "मेरो भिजन",
+
+    //View All Events
+    'id' => "आईडी",
+    'event_name' => "घटना नाम",
+    'start_time' => "सुरु समय",
+    'end_time' => "अन्त्य समय",
+    'event_date' => "घटना मिति",
+    'event_address' => "घटना ठेगाना",
+    'published_by' => "द्वारा प्रकाशित",
+    'action' => "कार्य",
+    'add_new_event' => "नयाँ घटना थप्नुहोस्",
+    'edit' => "सम्पादन गर्नुहोस्",
+    'delete' => "मेटाउन",
    
 ];

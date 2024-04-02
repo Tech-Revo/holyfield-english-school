@@ -33,6 +33,7 @@
                         <div class="col"></div>
                         <div class="col-auto text-end float-end ms-auto">
                             <a href="{{ url('admin/cms/events/add') }}" class="btn btn-primary">Add New Event</a>
+                             <a href="{{ url('admin/cms/events/view') }}" class="btn btn-primary">View Events</a>
                         </div>
                     </div>
                 </div>

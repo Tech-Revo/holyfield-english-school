@@ -47,10 +47,14 @@ Route::group(['middleware' => ['auth','lang'], 'prefix' => 'admin'], function ()
     Route::get('cms/blogs/delete/{id}', [AdminBlogController::class, 'destroy']);
     Route::get('cms/blogs/blog-details/{slug}', [AdminBlogController::class, 'show']);
     Route::get('cms/contact-us', [AdminContactUsController::class, 'index']);
-    Route::get('cms/events/view', [AdminEventController::class, 'index']);
-    Route::get('cms/events', [AdminEventController::class, 'eventData']);
+    
+    Route::get('cms/events', [AdminEventController::class, 'index']);
+    Route::get('cms/events/view', [AdminEventController::class, 'viewEventIndex']);
+    Route::get('cms/events/view/data', [AdminEventController::class, 'allEventData']);
+    Route::get('cms/events/data', [AdminEventController::class, 'eventData']);
     Route::get('cms/events/add', [AdminEventController::class, 'addEventIndex']);
     Route::post('cms/events/add', [AdminEventController::class, 'store']);
+    
     Route::get('cms/gallery', [AdminGalleryController::class, 'index']);
     Route::post('cms/gallery', [AdminGalleryController::class, 'store']);
     Route::get('cms/gallery/add', [AdminGalleryController::class, 'addGalleryImageIndex']);
