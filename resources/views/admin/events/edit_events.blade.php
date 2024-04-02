@@ -19,10 +19,10 @@
                 <div class="page-header">
                     <div class="row align-items-center">
                         <div class="col">
-                            <h3 class="page-title">Add Event</h3>
+                            <h3 class="page-title">@lang('translation.edit') @lang('translation.events')</h3>
                             <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{ url('admin/cms/events/view') }}">Events</a></li>
-                                <li class="breadcrumb-item active">Add Event</li>
+                                <li class="breadcrumb-item"><a href="{{ url('admin/cms/events/view') }}">@lang('translation.events')</a></li>
+                                <li class="breadcrumb-item active">@lang('translation.add_new_event')</li>
                             </ul>
                         </div>
                     </div>
