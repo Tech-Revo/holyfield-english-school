@@ -30,7 +30,8 @@
                         <div class="col">
                             <h3 class="page-title">@lang('translation.events')</h3>
                             <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}">@lang('translation.dashboard')</a></li>
+                                <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}">@lang('translation.dashboard')</a>
+                                </li>
                                 <li class="breadcrumb-item active">@lang('translation.events')</li>
                             </ul>
                         </div>
@@ -82,6 +83,27 @@
         </div>
 
 
+        <!-- Add this modal code to your HTML -->
+        <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="confirmationModalLabel">Confirm Deletion</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to delete this event?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
 
         <script>
             $(document).ready(function() {
@@ -123,9 +145,9 @@
                         {
                             data: null,
                             render: function(data, type, row) {
-                                return '<button class="btn btn-danger btn-sm" onclick="deleteAccess(' +
+                                return '<button class="btn btn-danger btn-sm" onclick="deleteEvent(' +
                                     row.id +
-                                    ')">@lang('translation.delete')</button> <button class="btn btn-warning btn-sm" onclick="viewDeliveryTime(' +
+                                    ')">@lang('translation.delete')</button> <button class="btn btn-warning btn-sm" onclick="editEvent(' +
                                     row.id + ')">@lang('translation.edit')</button>';
                             }
                         }
@@ -160,10 +182,18 @@
                 });
             });
 
-            function deleteAccess(id) {
-                if (confirm('Are you sure you want to delete this event?')) {
+            function deleteEvent(id) {
+
+                $('#confirmationModal').modal('show');
+
+
+                $('#confirmDeleteBtn').on('click', function() {
+
+                    $('#confirmationModal').modal('hide');
+
+
                     $.ajax({
-                        url: '/admin/delivery-time/delete/' + id,
+                        url: '/admin/cms/events/delete/' + id,
                         type: 'GET',
                         data: {
                             _method: 'DELETE'
@@ -180,7 +210,17 @@
                             console.error(xhr.responseText);
                         }
                     });
-                }
+                });
+            }
+        </script>
+
+        <script>
+            function editEvent(id) {
+                var baseUrl = '{{ url('admin/cms/events/edit/') }}';
+                var url = baseUrl + '/' + id;
+
+
+                window.location.href = url;
             }
         </script>
 

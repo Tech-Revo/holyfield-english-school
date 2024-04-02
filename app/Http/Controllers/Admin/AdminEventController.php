@@ -118,4 +118,82 @@ class AdminEventController extends Controller
             return back()->with('error', $e->getMessage());
         }
     }
+
+    public function edit($id,$settingable_type = null, $settingable_id = null){
+
+        $site_setting = SiteSetting::where("settingable_type", $settingable_type)
+            ->where("settingable_id", $settingable_id)
+            ->get();
+        $data = [];
+        foreach ($site_setting as $item) {
+            if ($item->type == 'image') {
+                $data[$item->key] = $item->getFirstMediaUrl();
+            } else {
+                $data[$item->key] = $item->value;
+            }
+        }
+
+        $lang = Localization::where('user_id', auth()->user()->id)->first();
+
+        
+        $event=Event::find($id);
+
+
+        return view('admin.events.edit_events',compact('event','lang','data'));
+        
+    }
+
+    public function update(Request $request,$id){
+        $request->validate([
+            'event_name' => ['required', 'string'],
+            'event_date' => ['required'],
+            'start_time' => ['required'],
+            'end_time' => ['required'],
+            'event_address' => ['required']
+
+        ]);
+        
+
+        $event=Event::find($id);
+        if(!$event){
+            return back()->with('error','Event not found!');
+        }
+
+        try{
+            $event=DB::transaction(function()use($event,$request){
+                $event->update([
+                    'published_by' => auth()->user()->name,
+                    'event_name' => $request->event_name,
+                    'event_date' => $request->event_date,
+                    'start_time' => $request->start_time,
+                    'end_time' => $request->end_time,
+                    'address' => $request->event_address,
+                ]);
+                return $event;
+            });
+            if($event){
+                return redirect('admin/cms/events/view')->with('success','Event updated successfully!');
+            }
+            
+        }
+        catch(\Exception $e){
+            return back()->with('error',$e->getMessage());
+            
+        }
+
+        
+        
+    }
+
+    public function destroy($id)
+    {
+        $event = Event::find($id);
+
+        if ($event) {
+            $event->delete();
+            return response()->json(['status' => 'success', 'message' => 'Event deleted successfully.']);
+        } else {
+            return response()->json(['status' => 'error', 'message' => 'Event Not Found!']);
+        }
+    }
 }
