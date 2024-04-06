@@ -17,6 +17,7 @@ return [
     'add_teacher' => "शिक्षक थप्नुहोस्",
     'setting' => "सेटिङहरू",
 
+    
     //Top Nav
     'administrator' => "प्रशासक",
     'my_profile' => "मेरो प्रोफाइल",
